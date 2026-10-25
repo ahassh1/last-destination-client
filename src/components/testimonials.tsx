@@ -107,7 +107,7 @@ export default function Testimonials() {
             <figure
               key={quote.name}
               data-card
-              className="flex w-[85%] shrink-0 snap-start flex-col justify-between gap-8 rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-card sm:w-[58%] sm:p-8 lg:w-[calc((100%-2.5rem)/3)]"
+              className="flex w-[85%] shrink-0 snap-start flex-col justify-between gap-8 rounded-3xl border border-ink/10 bg-white p-6 shadow-card sm:w-[58%] sm:p-8 lg:w-[calc((100%-2.5rem)/3)]"
             >
               <div>
                 <div className="flex gap-1" aria-label="5 out of 5 stars">

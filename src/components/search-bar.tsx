@@ -48,7 +48,7 @@ export default function SearchBar() {
     <form
       id="search"
       onSubmit={onSubmit}
-      className="grid scroll-mt-28 gap-2.5 rounded-[1.75rem] border border-ink/10 bg-white p-3 shadow-lift sm:grid-cols-2 xl:grid-cols-[1.3fr_1fr_1fr_0.9fr_auto]"
+      className="grid scroll-mt-28 gap-2.5 rounded-brand border border-ink/10 bg-white p-3 shadow-lift sm:grid-cols-2 xl:grid-cols-[1.3fr_1fr_1fr_0.9fr_auto]"
     >
       <Field label="Location" icon={<MapPin className="h-5 w-5" />}>
         <input
