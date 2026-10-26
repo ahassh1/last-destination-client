@@ -5,9 +5,10 @@ import Link from "next/link";
 import { ArrowRight, Close, Compass, Menu } from "./icons";
 
 const NAV = [
-  { label: "Home", href: "/#top" },
-  { label: "Destinations", href: "/#destinations" },
-  { label: "Why us", href: "/#why" },
+  { label: "Home", href: "/" },
+  { label: "Destinations", href: "/destinations" },
+  { label: "Add Destination", href: "/add-destination" },
+  { label: "Why us", href: "/why" },
   { label: "Reviews", href: "/#reviews" },
 ];
 
