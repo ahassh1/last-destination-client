@@ -5,29 +5,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import Link from "next/link";
+import { fallbackImageFor, isValidImageUrl } from "@/lib/destination-images";
+import type { IDestination } from "@/lib/types/destinations";
 import { ArrowUpRight, Calendar, MapPin, Star } from "./icons";
 
-export type Destination = {
-  _id: string;
-  name: string;
-  country: string;
-  category?: string;
-  price: string;
-  duration?: string;
-  departureDate?: string;
-  imageUrl?: string;
-  description?: string;
-  rating?: string | number;
-};
-
-/** Local images shown when the API image URL is missing or fails to load. */
-const FALLBACK_IMAGES = [
-  "/image1.png",
-  "/image2.png",
-  "/image3.png",
-  "/image4.png",
-  "/image5.png",
-];
+/** A destination record from the API. Kept as an alias so both names work. */
+export type Destination = IDestination;
 
 function formatPrice(price?: string) {
   const raw = price?.trim();
@@ -44,10 +27,12 @@ export default function DestinationCard({
   destination: Destination;
   fallbackIndex?: number;
 }) {
-  const fallback =
-    FALLBACK_IMAGES[Math.abs(fallbackIndex) % FALLBACK_IMAGES.length];
+  const fallback = fallbackImageFor({
+    category: destination.category,
+    index: fallbackIndex,
+  });
   const [imageSrc, setImageSrc] = useState(
-    destination.imageUrl?.trim() || fallback,
+    isValidImageUrl(destination.imageUrl) ? destination.imageUrl!.trim() : fallback,
   );
 
   const price = formatPrice(destination.price);
